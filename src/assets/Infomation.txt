@@ -1,0 +1,15 @@
+Font size - Karla Regular 18px
+Heading size   - Karla Bold  27px
+
+font size in dashboard
+
+WITH FASTEST DELIVERY SYSTEM - 44px
+OUR PIZZA IS               -   55px
+READY FOR U . . .         -    40px
+
+
+Primary Color - #FDC55E
+background Color - #FFF3DF
+Second Color  - #B52032
+
+Font Color    - #E98F0F

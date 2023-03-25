@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Primary Color - #FDC55E
+background Color - #FFF3DF
+Second Color  - #B52032 */
+
+.main-bg-color {
+  background: #fdc55e;
+}
+.default-bg-color {
+  background: #fff3df;
+}
+
+.main-font-color {
+  color: #fdc55e;
+}
+.font-color {
+  color: #b52032;
+}
+.easy-font-color{
+    color: #E98F0F;
+}
