@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.size-btn{
+  @apply bg-amber-400 text-[12px] text-sm font-semibold rounded-3xl py-1 px-4 hover:bg-red-600
+}
+.cart-title{
+  @apply  font-bold text-amber-500
+}
+.cart-invoice{
+  @apply  font-bold text-base text-red-600 align-middle
+}
+.btn{
+  @apply text-red-600 bg-amber-400 py-1 px-4 rounded-md font-bold hover:bg-amber-300 m-2
+}
+.toppin{
+  @apply bg-amber-400 text-white font-bold py-2 px-5 rounded-md transition-all shadow-lg hover:text-red-600
+}
+
+.main-bg-color {
+  background: #fdc55e;
+}
+.default-bg-color {
+  background: #fff3df;
+}
+
+.main-font-color {
+  color: #fdc55e;
+}
+.font-color {
+  color: #b52032;
+}
+.easy-font-color{
+    color: #E98F0F;
+}
+
+.active{
+  @apply border-b-2 border-red-600
+}

@@ -1,0 +1,40 @@
+{
+    "popular":[
+        {
+            "id":1,
+            "name":"Sausage Pizza",
+            "image":"https://images.unsplash.com/photo-1542282811-943ef1a977c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+            "price":100
+        },
+        {
+            "id":2,
+            "name":"Vegetable Pizza",
+            "image":"https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "price":140
+        },
+        {
+            "id":3,
+            "name":"Cheese Pizza",
+            "image":"https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "price":135
+        },
+        {
+            "id":4,
+            "name":"Mushroom",
+            "image":"https://images.unsplash.com/photo-1544882907-b914cebddbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+            "price":280
+        },
+        {
+            "id":5,
+            "name":"Cheese Pizza",
+            "image":"https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80",
+            "price":110
+        },
+        {
+            "id":6,
+            "name":"Pork Pizza",
+            "image":"https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "price":210
+        }
+    ]
+}
