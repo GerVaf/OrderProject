@@ -8,7 +8,7 @@ import {
 const Social = () => {
   return (
     <div>
-      <div className=" w-full items-center justify-center flex gap-10 p-3 main-font-color bg-white">
+      <div className=" w-full items-center justify-center flex gap-10 p-3 text-red-600  bg-white">
         <a>
           <AiFillFacebook className=" text-3xl"/>
         </a>
@@ -20,7 +20,7 @@ const Social = () => {
         </a>
       </div>
       <div className=" main-bg-color p-4 font-color rounded-md">
-        <p className=" text-center">Copyright & copy {new Date().getFullYear()}@codeByNoone</p>
+        <p className="font-bold text-center">Copyright & copy {new Date().getFullYear()}@codeByNoone</p>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const Menu = () => {
 
   return (
     <>
-      <div className="flex justify-center gap-10 mt-5">
+      <div className="flex flex-col gap-4 mt-4 sm:flex-row sm:justify-center sm:gap-10 sm:mt-5">
         <button className=" toppin">All</button>
         <button className=" toppin">Seafood</button>
         <button className=" toppin">Beef</button>
@@ -27,12 +27,9 @@ const Menu = () => {
       </div>
       {items.map((item) => {
 
-        const increQty = ()=>{
-          item.quantity += 1
-        }
 return (
           <div key={item.id} className="flex flex-col items-center mt-7">
-            <OrderMenu item={item} increQty={increQty}/>
+            <OrderMenu item={item} />
           </div>
         );
       })}

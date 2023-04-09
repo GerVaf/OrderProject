@@ -28,7 +28,6 @@ export const ContextStateProvider = ({ children }) => {
     const IntialState = {
         items:[],
         cart:[],
-        count:0
     }
     // console.log(IntialState);
 
