@@ -56,7 +56,7 @@ export const ContextStateProvider = ({ children }) => {
   return (
     <ContextState.Provider value={data}>
       {isLoad ? (
-        <div class="wrapper w-[100vw] h-[100vh]">
+        <div class="wrapper h-[100vh]">
           <div class="blue ball"></div>
           <div class="red ball"></div>
           <div class="yellow ball"></div>
