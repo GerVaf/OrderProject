@@ -17,27 +17,7 @@
   @apply  font-bold text-base text-red-600 align-middle
 }
 .btn{
-  @apply font-bold py-2 px-5 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 
-}
-.toppin{
-  @apply bg-amber-400 text-white font-bold py-2 px-5 rounded-md transition-all shadow-lg hover:text-red-600
-}
-
-.main-bg-color {
-  background: #fdc55e;
-}
-.default-bg-color {
-  background: #fff3df;
-}
-
-.main-font-color {
-  color: #fdc55e;
-}
-.font-color {
-  color: #b52032;
-}
-.easy-font-color{
-    color: #E98F0F;
+  @apply font-bold py-2 px-5 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 border-0
 }
 
 .active{

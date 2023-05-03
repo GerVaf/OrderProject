@@ -11,12 +11,17 @@ import Navbar from "../Head-Foot/Navbar";
 import Social from "../Head-Foot/Social";
 import { reducer } from "./reducer";
 
+import "./Context.css";
+
 const ContextState = createContext();
 
 export const ContextStateProvider = ({ children }) => {
   const [item, setItem] = useState([]);
 
+  const [isLoad, setIsLoad] = useState(false);
+
   const FetchData = () => {
+    setIsLoad(true);
     const collectionRef = collection(db, "items");
     onSnapshot(collectionRef, (docs) => {
       const data = [];
@@ -26,9 +31,10 @@ export const ContextStateProvider = ({ children }) => {
         return el;
       });
       setItem(newData);
+      setIsLoad(false);
     });
   };
-  console.log(item)
+  console.log(item);
 
   useEffect(() => {
     FetchData();
@@ -37,7 +43,7 @@ export const ContextStateProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: "SHOW_ITEM", payload: item });
   }, [item]);
-  
+
   const IntialState = {
     items: [],
     cart: [],
@@ -49,9 +55,20 @@ export const ContextStateProvider = ({ children }) => {
   const data = { state, dispatch };
   return (
     <ContextState.Provider value={data}>
-      <Navbar />
-      {children}
-      <Social />
+      {isLoad ? (
+        <div class="wrapper w-[100vw] h-[100vh]">
+          <div class="blue ball"></div>
+          <div class="red ball"></div>
+          <div class="yellow ball"></div>
+          <div class="green ball"></div>
+        </div>
+      ) : (
+        <>
+          <Navbar />
+          {children}
+          <Social />
+        </>
+      )}
     </ContextState.Provider>
   );
 };

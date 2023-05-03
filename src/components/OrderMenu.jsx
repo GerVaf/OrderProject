@@ -57,10 +57,10 @@ const OrderMenu = ({ item }) => {
 
   const totalPrice = item.price * quantity;
   return (
-    <div className=" flex bg-white shadow-lg rounded-md ">
+    <div className=" sm:flex sm:flex-row flex flex-col items-center bg-white shadow-lg rounded-md ">
       <img
         src={item.image}
-        className=" w-80 h-64 object-cover object-bottom"
+        className=" w-80 h-60 sm:w-80 sm:h-72 object-cover object-bottom"
         alt=""
       />
       <div className=" flex flex-col gap-5 w-80 m-5">

@@ -22,7 +22,7 @@ const Hero = () => {
           <button className=" border border-white text-gray-500 sm:text-white hover:text-gray-100 transition duration-300 bg-transparent py-2 px-5 rounded-l-md">
             2023 LookBook
           </button>
-          <button className=" border border-white text-orange-600 hover:bg-gray-50 hover:text-orange-500 transition duration-300 bg-white py-2 px-5 rounded-r-md">
+          <button onClick={()=>navigate('/order')} className=" border border-white text-orange-600 hover:bg-gray-50 hover:text-orange-500 transition duration-300 bg-white py-2 px-5 rounded-r-md">
             SHOP NOW
           </button>
         </div>
