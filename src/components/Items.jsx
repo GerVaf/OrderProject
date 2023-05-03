@@ -1,57 +1,66 @@
-import axios from "axios";
+import { collection, onSnapshot } from "firebase/firestore";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Item.css";
-// import menuOne from "../assets/menu1.png";
+import { db } from "../firebase.config";
 
-// import { ContextCustom } from "../context/Context";
-
+import {BsEye} from "../../node_modules/react-icons/bs"
+import {FiArrowUpRight} from '../../node_modules/react-icons/fi'
 const Items = () => {
-  // const {state: { items },} = ContextCustom();
-  // console.log(items);
-  const [items,setItems]= useState([])
+  const [items, setItems] = useState([]);
 
-  useEffect(()=>{
-    FetchItem()
-  },[])
-  const FetchItem = async()=>{
-    const {data} = await axios.get("http://localhost:3000/popular")
-    console.log(data);
-    setItems(data)
-  }
-  const navigateMenu = useNavigate()
+  useEffect(() => {
+    FetchItem();
+  }, []);
+  const FetchItem = () => {
+    const collectionRef = collection(db, "items");
+    onSnapshot(collectionRef, (docs) => {
+      const data = [];
+      docs.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
+      setItems(data);
+    });
+  };
+  const navigate = useNavigate();
   return (
     <>
-      <div>
-        <div className="main-bg-color rounded-md p-5">
-          <h1 className=" text-center sm:text-2xl font-color uppercase font-semibold">
-            Popular menu for today
-          </h1>
-          <div className=" mx-auto flex flex-wrap items-center gap-3 justify-center mt-5 sm:gap-7">
-          {items?.map(item =>{
-            return(
-            <div key={item.id} className=" flex flex-col bg-white rounded-xl gap-2">
-              <img
-                src={item.image}
-                alt="..."
-                className=" hilight w-[101px] sm:w-[300px] rounded-t-lg sm:h-[200px]"
-              />
-              <div className=" text-center ">
-              <p className=" text-center font-color text-[10px] mb-2 sm:text-xl font-bold ">{item.name}</p>
-              <hr className="sm:mt-4" />
-              <div className="p-2 flex gap-2 sm:p-4 ">
-                <button className="sm:text-[15px] bg-white sm:px-9 text-amber-500 font-bold sm:py-2 rounded-2xl  hover:bg-yellow-50 text-[10px] ">
-                  ${item.price}
-                </button>
-                <button onClick={()=> navigateMenu("/order")} className="px-[5px] py-[3px] text-[8px] bg-amber-500 sm:px-9 text-white font-bold sm:py-2 rounded-2xl hover:text-red-600  hover:bg-amber-400 sm:text-[15px]">Order Now</button>
+    <hr />
+      <div className="m-5 flex justify-center w-[95%] items-center">
+        <div className=" sm:w-3/12 text-4xl font-bold flex gap-5">
+          <BsEye/>
+          <p>Winter Collection</p>
+        </div>
+        <div className="flex sm:w-5/12 ">
+          Versenciav is a contemporary fashion brand that focuses on desgining and producting minimalist high quality clothing and accessories.
+        </div>
+        <div className="flex justify-center sm:w-4/12 ">
+          <button className="flex hover:text-white hover:bg-orange-500 py-3 px-8 border-2 rounded-xl border-orange-500 text-orange-500">View All<FiArrowUpRight/></button>
+        </div>
+      </div>
+
+      <div className="flex sm:justify-center overflow-x-scroll">
+        <div className="m-5 sm:w-[95%] flex gap-5   justify-center items-center">
+          {items.map((item) => {
+            return (
+              <div className=" group w-80 h-80 overflow-hidden sm:w-8/12 flex justify-start  relative ">
+                <img
+                  className=" rounded-md shadow-lg w-[100%] object-cover object-top h-[600px]"
+                  src={item.image}
+                  alt=""
+                />
+                <div className=" h-[100px] py-4 group-hover:flex duration-300 transition group-hover:absolute sm:bg-white items-center hidden bottom-0 sm:bottom-10 w-[100%] justify-around font-bold">
+                  <div className=" w-36 text-orange-500">
+                    <p>{item.title}</p>
+                    <p>${item.price}</p>
+                  </div>
+
+                  <div>
+                    <button onClick={()=>navigate("/order")} className="hover:bg-orange-500 hover:text-white transition duration-300 py-3 px-7 rounded-xl border-2 border-orange-500 sm:bg-white text-orange-500 ">SHOP NOW</button>
+                  </div>
+                </div>
               </div>
-              </div>
-            </div>
-            )
+            );
           })}
-          </div>
         </div>
       </div>
     </>

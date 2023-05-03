@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Raleway:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  font-family: 'Raleway', sans-serif;
+}body{
+  background-color: #fff2df;
+}
 .size-btn{
   @apply bg-amber-400 text-[12px] text-sm font-semibold rounded-3xl py-1 px-4 hover:bg-red-600
 }
@@ -12,7 +17,7 @@
   @apply  font-bold text-base text-red-600 align-middle
 }
 .btn{
-  @apply text-red-600 bg-amber-400 py-1 px-4 rounded-md font-bold hover:bg-amber-300 m-2
+  @apply font-bold py-2 px-5 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 
 }
 .toppin{
   @apply bg-amber-400 text-white font-bold py-2 px-5 rounded-md transition-all shadow-lg hover:text-red-600

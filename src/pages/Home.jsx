@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "../components/Card";
 import Hero from "../components/Hero";
 import Items from "../components/Items";
 import Service from "../components/Service";
@@ -6,12 +7,11 @@ import Service from "../components/Service";
 const Home = () => {
 
   return (
-    <div>
-      {/* <Navbar /> */}
+    <div className=" overflow-x-hidden">
       <Hero />
       <Service />
+      <Card/>
       <Items />
-      {/* <Social/> */}
     </div>
   );
 };
