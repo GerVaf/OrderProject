@@ -1,5 +1,6 @@
 import React from "react";
 import { BsArrowRight } from "../../node_modules/react-icons/bs";
+import { FaLongArrowAltRight } from "../../node_modules/react-icons/fa";
 import {
   AiOutlineInstagram,
   AiFillFacebook,
@@ -15,11 +16,62 @@ import orange3 from "../image/orange3.jpeg";
 import { Image } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
+import { motion } from "framer-motion";
 const First = () => {
   const navigate = useNavigate();
+
+  const topPart = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        stiffness: 120,
+        duration: 1,
+      },
+    },
+  };
+  const fromTo = {
+    caro: {
+      x: [0, -170, 170, -170,170,0],
+      transition:{
+        duration:5,
+        stiffness:200,
+      }
+    },
+    button:{
+      x:[-60,60,-60,60,-60,60,-60,0]
+      ,transition:{
+        duration:5,
+      }
+    },
+    img:{
+      x:[-1000,0],
+      transition:{
+        duration:1.5,
+        type:"spring"
+      }
+    },
+    text:{
+      x:0,
+      y:[1000,0],
+      transition:{
+        duration:1.5,
+      }
+    }
+  };
+
   return (
     <>
-      <div className="sm:flex ">
+      {/* topPart */}
+      <motion.div
+        variants={topPart}
+        initial="hidden"
+        animate="visible"
+        className="sm:flex "
+      >
+        {/* text&icons  */}
         <div className="sm:flex flex justify-center my-10 gap-10 sm:m-0 sm:w-8/12 sm:my-20 sm:justify-center">
           <div className="flex flex-col gap-4 text-xl sm:text-3xl text-orange-500 sm:gap-16 sm:flex sm:flex-col  sm:pr-10">
             <AiOutlineInstagram />
@@ -32,7 +84,7 @@ const First = () => {
         </div>
 
         {/* carousel */}
-        <div className="hidden sm:block sm:w-4/12 sm:my-20 cursor-pointer">
+        <div className="hidden sm:flex sm:flex-col sm:items-center gap-2 sm:w-4/12 sm:my-20 cursor-pointer">
           <Carousel
             slideSize="70%"
             height={300}
@@ -57,7 +109,14 @@ const First = () => {
               <Image src={orange2} />
             </Carousel.Slide>
           </Carousel>
+          <div className="flex flex-col">
+            <p className="text-lg font-bold text-orange-500">Scroll</p>
+          <motion.div animate="caro" variants={fromTo} className="text-orange-600 text-4xl">
+            <FaLongArrowAltRight />
+          </motion.div>
+          </div>
         </div>
+
         {/* for mobile */}
         <div className="block sm:hidden sm:w-4/12 sm:my-20 cursor-pointer mb-10">
           <Carousel
@@ -85,16 +144,18 @@ const First = () => {
             </Carousel.Slide>
           </Carousel>
         </div>
-      </div>
+      </motion.div>
 
       <div className="flex flex-col gap-5 m-5 sm:m-0 sm:flex-row sm:flex sm:gap-5">
-        <img
+        <motion.img
+        variants={fromTo}
+        animate="img"
           className=" rounded-md w-[100%] h-[200px] sm:w-4/12 sm:h-[30vh] object-cover object-top"
           src={orange3}
           alt=""
         />
 
-        <div className="sm:w-5/12 sm:text-lg sm:flex sm:justify-center">
+        <motion.div animate="text" variants={fromTo} className="sm:w-5/12 sm:text-lg sm:flex sm:justify-center">
           <p className=" sm:w-3/5">
             Welcome to NAMI! We're here to assist you in finding the perfect
             outfit. Are you looking for something specific or do you need help
@@ -104,15 +165,16 @@ const First = () => {
             you'll love. Let me know if you have any questions or if there's
             anything else We can do to help out!
           </p>
-        </div>
-        <div className="sm:w-3/12 flex justify-end sm:flex sm:justify-center sm:items-end">
-          <button
+        </motion.div>
+        <div  className="sm:w-3/12 flex justify-end sm:flex sm:justify-center sm:items-end">
+          <motion.button
+          animate="button" variants={fromTo}
             onClick={() => navigate("/home")}
             className="bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center gap-5 text-white hover:from-yellow-300 transition duration-300 hover:to-orange-400 rounded-sm font-bold sm:py-10 sm:px-16 py-5 px-3"
           >
             View All About Fashion
             <BsArrowRight className="text-xl" />
-          </button>
+          </motion.button>
         </div>
       </div>
     </>

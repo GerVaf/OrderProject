@@ -1,5 +1,7 @@
 import React from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import getStripe from "../../lib/getStripe";
 import { ContextCustom } from "../context/Context";
 const Cart = () => {
   const {
@@ -9,6 +11,25 @@ const Cart = () => {
   console.log(cart);
 
   const navigate = useNavigate();
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    });
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    toast.loading("Redirecting...");
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
   return (
     <>
       {cart.length === 0 ? (
@@ -50,11 +71,17 @@ const Cart = () => {
                       <p>Quantity: {item.quantity}</p>
                       <p>Total: ${Total}</p>
                     </div>
-                    <button onClick={removeItem} className="font-bold py-2 px-5 rounded-lg bg-gradient-to-r from-red-400 to-orange-500 hover:from-rose-400 hover:to-orange-400 text-white">CANCEL</button>
+                    <button
+                      onClick={removeItem}
+                      className="font-bold py-2 px-5 rounded-lg bg-gradient-to-r from-red-400 to-orange-500 hover:from-rose-400 hover:to-orange-400 text-white"
+                    >
+                      CANCEL
+                    </button>
                   </div>
                 );
               })}
             </div>
+            <button onClick={handleCheckout}>Pay with Stripe</button>
           </div>
         </>
       )}
