@@ -14,7 +14,7 @@ const Items = () => {
     FetchItem();
   }, []);
   const FetchItem = () => {
-    const collectionRef = collection(db, "items");
+    const collectionRef = collection(db, "Items");
     onSnapshot(collectionRef, (docs) => {
       const data = [];
       docs.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
@@ -40,7 +40,7 @@ const Items = () => {
       </div>
 
       {/* items */}
-      <div className="flex sm:justify-center overflow-x-scroll">
+      <div className="flex sm:justify-center sm:overflow-x-scroll overflow-x-scroll">
         <div className="m-5 sm:w-[95%] flex gap-5   justify-center items-center">
           {items.map((item) => {
             return (

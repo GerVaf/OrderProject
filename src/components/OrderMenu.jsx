@@ -60,7 +60,7 @@ const OrderMenu = ({ item }) => {
     <div className=" sm:flex sm:flex-row flex flex-col items-center bg-white shadow-lg rounded-md ">
       <img
         src={item.image}
-        className=" w-80 h-60 sm:w-80 sm:h-72 object-cover object-bottom"
+        className=" w-80 h-60 mt-5 sm:mt-0 sm:w-80 sm:h-72 object-cover object-bottom"
         alt=""
       />
       <div className=" flex flex-col gap-5 w-80 m-5">
