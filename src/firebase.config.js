@@ -1,16 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA4i80OyfWA9C1hCcz52sC8y5O47ozp25o",
-  authDomain: "clothshop-99bcc.firebaseapp.com",
-  projectId: "clothshop-99bcc",
-  storageBucket: "clothshop-99bcc.appspot.com",
-  messagingSenderId: "156821718425",
-  appId: "1:156821718425:web:8126110cf18d3c00f33f08"
+  apiKey: "AIzaSyCfCIAAVYoXQQy_0jDd793jzdnaPPkxsG0",
+  authDomain: "blah-feb50.firebaseapp.com",
+  projectId: "blah-feb50",
+  storageBucket: "blah-feb50.appspot.com",
+  messagingSenderId: "604582476489",
+  appId: "1:604582476489:web:fbdf9afeb0509914696b18",
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app)
-
-
+export const db = getFirestore(app);

@@ -59,7 +59,7 @@ const OrderMenu = ({ item }) => {
   return (
     <div className=" sm:flex sm:flex-row flex flex-col items-center bg-white shadow-lg rounded-md ">
       <img
-        src={item.image}
+        src={item.img}
         className=" w-80 h-60 mt-5 sm:mt-0 sm:w-80 sm:h-72 object-cover object-bottom"
         alt=""
       />

@@ -47,17 +47,17 @@ const Items = () => {
               <div className="  group w-80 h-96 items-end overflow-hidden sm:w-8/12 flex justify-start relative ">
                 <img
                   className="group-hover:opacity-75 rounded-md shadow-lg w-[100%] object-cover  sm:object-top h-[600px]"
-                  src={item.image}
+                  src={item.img}
                   alt=""
                 />
-                <div className=" h-[100px] py-4 group-hover:flex duration-300 transition group-hover:absolute sm:bg-white items-center hidden bottom-0 sm:bottom-10 w-[100%] justify-around font-bold">
-                  <div className=" w-36 text-orange-500">
+                <div className=" h-full py-4 group-hover:flex flex-col items-center duration-300 transition group-hover:absolute bg-white/20 backdrop-blur-md hidden w-[100%] justify-around font-bold">
+                  <div className=" text-white">
                     <p>{item.title}</p>
                     <p>${item.price}</p>
                   </div>
 
                   <div>
-                    <button onClick={()=>navigate("/order")} className="hover:bg-orange-500 hover:text-white transition duration-300 py-3 px-5 rounded-xl border-2 border-orange-500 sm:bg-white text-orange-500 ">SHOP NOW</button>
+                    <button onClick={()=>navigate("/order")} className="hover:bg-orange-500 hover:border-orange-500 hover:text-white transition duration-300 py-3 px-5 rounded-xl border-2 border-white bg-transparent text-white ">SHOP NOW</button>
                   </div>
                 </div>
               </div>

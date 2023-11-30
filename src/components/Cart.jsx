@@ -62,7 +62,7 @@ const Cart = () => {
                   >
                     <img
                       className=" rounded-md w-80 h-64 object-cover object-bottom"
-                      src={item.image}
+                      src={item.img}
                       alt=""
                     />
                     <div className=" w-[100%] flex flex-col gap-3 font-bold text-gray-500">
