@@ -23,7 +23,7 @@ export const ContextStateProvider = ({ children }) => {
 
   const FetchData = () => {
     setIsLoad(true);
-    const collectionRef = collection(db, "Items");
+    const collectionRef = collection(db, "items");
     onSnapshot(collectionRef, (docs) => {
       const data = [];
       docs.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));

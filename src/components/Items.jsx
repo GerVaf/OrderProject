@@ -14,7 +14,7 @@ const Items = () => {
     FetchItem();
   }, []);
   const FetchItem = () => {
-    const collectionRef = collection(db, "Items");
+    const collectionRef = collection(db, "items");
     onSnapshot(collectionRef, (docs) => {
       const data = [];
       docs.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
@@ -47,13 +47,13 @@ const Items = () => {
               <div className="  group w-80 h-96 items-end overflow-hidden sm:w-8/12 flex justify-start relative ">
                 <img
                   className="group-hover:opacity-75 rounded-md shadow-lg w-[100%] object-cover  sm:object-top h-[600px]"
-                  src={item.img}
+                  src={item?.img}
                   alt=""
                 />
                 <div className=" h-full py-4 group-hover:flex flex-col items-center duration-300 transition group-hover:absolute bg-white/20 backdrop-blur-md hidden w-[100%] justify-around font-bold">
                   <div className=" text-white">
-                    <p>{item.title}</p>
-                    <p>${item.price}</p>
+                    <p>{item?.title}</p>
+                    <p>${item?.price}</p>
                   </div>
 
                   <div>
