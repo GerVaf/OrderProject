@@ -1,40 +1,40 @@
-import { collection, onSnapshot } from "firebase/firestore";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
-import { db } from "../firebase.config";
+import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
 import Navbar from "../Head-Foot/Navbar";
 import Social from "../Head-Foot/Social";
 import { reducer } from "./reducer";
-
 import "./Context.css";
 import Loading from "./Loading/Loading";
+import { supabase } from "../Supabase/supabase";
 
 const ContextState = createContext();
 
 export const ContextStateProvider = ({ children }) => {
   const [item, setItem] = useState([]);
-
   const [isLoad, setIsLoad] = useState(false);
 
-  const FetchData = () => {
+  const FetchData = async () => {
     setIsLoad(true);
-    const collectionRef = collection(db, "items");
-    onSnapshot(collectionRef, (docs) => {
-      const data = [];
-      docs.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
-      const newData = data.map((el) => {
-        el = { ...el, quantity: 0, originalPrice: el.price, added: false };
-        return el;
-      });
+    try {
+      let { data, error } = await supabase
+        .from('Clothes')
+        .select("*");
+      
+      if (error) throw error;
+      
+      const newData = data.map(el => ({
+        ...el,
+        quantity: 0,
+        originalPrice: el.price,
+        added: false,
+      }));
+
       setItem(newData);
-      setIsLoad(false);
-    });
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    }
+    setIsLoad(false);
   };
+
   console.log(item);
 
   useEffect(() => {
@@ -45,15 +45,15 @@ export const ContextStateProvider = ({ children }) => {
     dispatch({ type: "SHOW_ITEM", payload: item });
   }, [item]);
 
-  const IntialState = {
+  const InitialState = {
     items: [],
     cart: [],
   };
-  // console.log(IntialState);
 
-  const [state, dispatch] = useReducer(reducer, IntialState);
+  const [state, dispatch] = useReducer(reducer, InitialState);
 
   const data = { state, dispatch };
+
   return (
     <ContextState.Provider value={data}>
       {isLoad ? (
