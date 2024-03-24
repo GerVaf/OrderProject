@@ -27,7 +27,7 @@ const Items = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="flex flex-col justify-center items-center">
       <hr />
       {/* Title section */}
       <div className="m-5 flex flex-col sm:flex-row sm:justify-center sm:w-[95%] gap-5 sm:gap-0 sm:items-center">
@@ -51,15 +51,15 @@ const Items = () => {
       </div>
 
       {/* Items section */}
-      <div className="flex sm:justify-center scrollbar-thin scrollbar-thumb-slate-200 sm:overflow-x-scroll overflow-x-scroll">
-        <div className="m-5 sm:w-[95%] flex gap-5 justify-center items-center">
+      <div className="w-[90vw] flex scrollbar-thin overflow-x-scroll">
+        <div className="flex gap-5">
           {items.map((item) => (
             <div
               key={item.id}
-              className="group w-80 h-96 items-end overflow-hidden sm:w-8/12 flex justify-start relative"
+              className="group sm:w-[500px] w-72 sm:h-[500px] h-72 overflow-hidden flex justify-start relative"
             >
               <img
-                className="group-hover:opacity-75 rounded-md shadow-lg w-[100%] object-cover sm:object-top h-[600px]"
+                className="group-hover:opacity-75 rounded-md shadow-lg w-full h-full object-cover sm:object-top "
                 src={item.img}
                 alt=""
               />
@@ -82,7 +82,7 @@ const Items = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

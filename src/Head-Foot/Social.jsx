@@ -20,7 +20,7 @@ const Social = () => {
         </a>
       </div> */}
       <div className=" bg-gradient-to-r from-orange-100 shadow-sm to-orange-200 mt-10 p-4 font-color rounded-md">
-        <p className="font-bold text-center">Copyright & copy {new Date().getFullYear()}@codeByThantZinMin</p>
+        <p className="font-bold text-center">Copyright & copy {new Date().getFullYear()}@ code By ThantZinMin</p>
       </div>
     </div>
   );

@@ -59,11 +59,11 @@ export const ContextStateProvider = ({ children }) => {
       {isLoad ? (
         <Loading />
       ) : (
-        <>
+        <div className="h-full">
           <Navbar />
           {children}
           <Social />
-        </>
+        </div>
       )}
     </ContextState.Provider>
   );
